@@ -1,0 +1,122 @@
+/* ==================================== */
+/* 0. CARREGAMENTO DE FONTES           */
+/* ==================================== */
+@font-face {
+    font-family: 'LCD Digital';
+    src: url('../fonts/LCDMB___.TTF') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap; /* Ajuda a exibir o texto enquanto a fonte carrega */
+}
+
+/* ==================================== */
+/* 1. RESET BÁSICO             */
+/* ==================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Removendo estilos de lista padrão */
+ul, ol {
+    list-style: none;
+}
+
+/* Removendo sublinhado de links e herdando cor de texto */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ==================================== */
+/* 2. ESTILIZAÇÃO GLOBAL         */
+/* ==================================== */
+
+:root {
+    /* Cores do tema */
+    --color-background: #000000;
+    --color-primary-red: #ff0000; /* Vermelho vibrante */
+    --color-neon-glow: rgba(255, 0, 0, 0.8); /* Vermelho com transparência para o brilho */
+    
+    /* FONTE ATUALIZADA */
+    --font-primary: 'LCD Digital', monospace; 
+}
+
+body {
+    background-color: var(--color-background);
+    color: var(--color-primary-red);
+    /* Aplicando a nova fonte a todo o corpo */
+    font-family: var(--font-primary), Arial, sans-serif;
+    /* ... (restante da estilização do body) ... */
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Efeito de neon/brilho para o texto e ícones */
+.logo-text, .nav-link, .biohazard-eye-image {
+    text-shadow: 
+        0 0 5px var(--color-neon-glow),
+        0 0 10px var(--color-primary-red);
+}
+
+/* ==================================== */
+/* 3. LAYOUT E CONTEÚDO          */
+/* ==================================== */
+
+.content-container {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px; /* Espaço entre o título, ícone e menu */
+}
+
+/* Título Principal */
+.logo-text {
+    font-size: 5em; /* Tamanho da fonte grande */
+    letter-spacing: 0.25em; /* Espaçamento entre letras para simular o display */
+    line-height: 1;
+}
+
+/* Ícone */
+.icon-container {
+    /* Centraliza o ícone visualmente abaixo do título */
+    padding: 20px; 
+}
+
+.biohazard-eye-image {
+    /* Define o tamanho da imagem para um visual proeminente */
+    width: 600px; 
+    height: auto; /* Mantém a proporção */
+}
+
+
+/* Menu de Navegação */
+.main-nav {
+    text-transform: uppercase;
+}
+
+.nav-list {
+    display: flex;
+    gap: 15px; /* Espaço entre os itens (incluindo o separador) */
+    font-size: 1.1em;
+    letter-spacing: 0.1em;
+}
+
+.separator {
+    color: var(--color-primary-red);
+    opacity: 0.5; /* Deixa o separador um pouco mais sutil */
+}
+
+.nav-link:hover {
+    color: #fff; /* Muda a cor no hover */
+    text-shadow: 
+        0 0 10px rgba(255, 255, 255, 0.5),
+        0 0 20px var(--color-primary-red);
+    transition: all 0.2s ease-in-out;
+}
