@@ -120,3 +120,94 @@ body {
         0 0 20px var(--color-primary-red);
     transition: all 0.2s ease-in-out;
 }
+
+/* ==================================== */
+/* 3.1. Estilização do Botão Hamburguer */
+/* ==================================== */
+.hamburger-menu {
+    display: none; /* Escondido por padrão no Desktop */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 100; /* Garante que fique acima de outros elementos */
+}
+
+.hamburger-menu .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: var(--color-primary-red);
+    transition: all 0.3s ease-in-out;
+    border-radius: 2px;
+    /* Adiciona o brilho neon às barras */
+    box-shadow: 0 0 5px var(--color-neon-glow); 
+}
+
+/* ==================================== */
+/* 4. RESPONSIVIDADE (MOBILE)          */
+/* ==================================== */
+
+@media (max-width: 600px) {
+    
+    /* 1. Ajuste do Título Principal */
+    .logo-text {
+        font-size: 2.5em; /* Reduz de 5em para 2.5em */
+        letter-spacing: 0.15em; /* Reduz o espaçamento de letras */
+    }
+
+    /* 2. Ajuste da Imagem do Olho */
+    .biohazard-eye-image {
+        width: 200px; /* Reduz de 300px para 200px */
+        /* O box-shadow e filters permanecem os mesmos */
+    }
+
+    /* 3. Ajuste do Layout e Espaçamento */
+    .content-container {
+        gap: 25px; /* Reduz o espaço entre os elementos */
+        padding: 15px;
+    }
+/* Mostrar o botão Hambúrguer no Mobile */
+.hamburger-menu {
+    display: block;
+    /* Estilização para centralizar o botão de forma clara */
+    align-self: flex-end; 
+    margin-left: auto;
+}
+
+/* Ocultar o menu por padrão (será exibido com JS) */
+.main-nav {
+    /* Posição para ocupar toda a largura e descer do topo */
+    position: absolute;
+    top: 0; /* Coloca no topo */
+    left: 0;
+    width: 100%;
+    height: 100vh; /* Ocupa a altura total da tela (para o fundo) */
+    padding-top: 150px; /* Dá espaço para o título e o botão */
+    background-color: rgba(0, 0, 0, 0.95); /* Fundo escuro semi-transparente */
+    
+    /* Efeito de transição suave */
+    transform: translateX(-100%); /* Move para fora da tela (escondido) */
+    transition: transform 0.4s ease-in-out;
+}
+
+/* Classe para mostrar o menu (adicionada pelo JS) */
+.main-nav.is-open {
+    transform: translateX(0); /* Traz o menu de volta para a tela */
+}
+
+/* Ajuste da Lista de Links (vertical no mobile) */
+.nav-list {
+    flex-direction: column; /* Lista de links vertical */
+    align-items: center;
+    gap: 25px; /* Mais espaço entre os links */
+    flex-wrap: nowrap;
+    font-size: 1.2em;
+}
+
+/* Garante que o separador não apareça na lista vertical */
+.separator {
+    display: none; 
+}
+}
